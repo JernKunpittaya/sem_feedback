@@ -35,6 +35,7 @@
 
 ## 🛠 Install
 
+[UPDATE description for easier following along]
 Use this repository as a Github [template](https://github.com/semaphore-protocol/boilerplate/generate).
 
 Clone your repository:
@@ -62,6 +63,20 @@ and add your environment variables.
 > **Note**  
 > You should at least set a valid Ethereum URL (e.g. Infura) and a private key with some ethers.
 
+### Test the contract
+
+1. Go to `apps/contracts` directory and and install relevant file by running:
+
+```bash
+yarn download:snark-artifacts
+```
+
+2. Run
+
+```bash
+yarn test
+```
+
 ### Deploy the contract
 
 1. Go to the `apps/contracts` directory and deploy your contract:
@@ -69,6 +84,8 @@ and add your environment variables.
 ```bash
 yarn deploy --semaphore <semaphore-address> --group <group-id> --network goerli
 ```
+
+Note that Semaphore-address is the address already deployed in V3 by semaphore. If we don't input this address, it will deploy a new semaphore contract, which is quite bothersome since all frontend boilerplates in this repo utilizes @semaphore/proof library that hardcodes refer to the subgraph of that specific semaphore contract
 
 2. Update your `.env` file with your new contract address and group id.
 
@@ -98,6 +115,8 @@ yarn auth <access-token>
 ```bash
 yarn deploy <account-name/subgraph-name>
 ```
+
+4. Make sure our frontend link to our newly deployed subgraph by changing the url link in `apps/web-app/src/hooks/useSubgraph.ts`
 
 ### Start the app
 

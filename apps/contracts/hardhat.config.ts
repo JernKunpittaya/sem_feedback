@@ -21,7 +21,8 @@ function getNetworks(): NetworksUserConfig {
             goerli: {
                 url: process.env.ETHEREUM_URL,
                 chainId: 5,
-                accounts
+                accounts,
+                allowUnlimitedContractSize: true
             }
         }
     }
@@ -39,7 +40,8 @@ const hardhatConfig: HardhatUserConfig = {
     },
     networks: {
         hardhat: {
-            chainId: 1337
+            chainId: 1337,
+            allowUnlimitedContractSize: true
         },
         ...getNetworks()
     },

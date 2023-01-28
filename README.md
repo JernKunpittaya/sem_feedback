@@ -85,7 +85,8 @@ yarn test
 yarn deploy --semaphore <semaphore-address> --group <group-id> --network goerli
 ```
 
-Note that Semaphore-address is the address already deployed in V3 by semaphore. If we don't input this address, it will deploy a new semaphore contract, which is quite bothersome since all frontend boilerplates in this repo utilizes @semaphore/proof library that hardcodes refer to the subgraph of that specific semaphore contract
+> **Note**  
+> Semaphore-address is the address already deployed in V3 by semaphore [here](https://semaphore.appliedzkp.org/docs/deployed-contracts).. If we don't input this address, it will deploy a new semaphore contract, which is quite bothersome since all frontend boilerplates in this repo utilizes @semaphore/proof library that hardcodes refer to the subgraph of that specific semaphore contract.
 
 2. Update your `.env` file with your new contract address and group id.
 
@@ -94,9 +95,6 @@ Note that Semaphore-address is the address already deployed in V3 by semaphore. 
 4. Copy your contract artifacts from `apps/contracts/build/contracts/contracts` folder to `apps/subgraph/contract-artifacts` and `apps/web-app/contract-artifacts` folders manually. Or run `yarn copy:contract-artifacts` in the project root to do it automatically.
 
 5. Deploy the subgraph again.
-
-> **Note**  
-> Check the Semaphore contract addresses [here](https://semaphore.appliedzkp.org/docs/deployed-contracts).
 
 > **Warning**  
 > The group id is a number!
